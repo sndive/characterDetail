@@ -12,7 +12,6 @@
 		49CF598E27E8AE13008430A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CF598C27E8AE13008430A1 /* Main.storyboard */; };
 		49CF599027E8AE15008430A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49CF598F27E8AE15008430A1 /* Assets.xcassets */; };
 		49CF599327E8AE15008430A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CF599127E8AE15008430A1 /* LaunchScreen.storyboard */; };
-		49CF599C27E8AF1F008430A1 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 49CF599B27E8AF1F008430A1 /* OrderedCollections */; };
 		49CF59A027E8B054008430A1 /* CharactersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CF599F27E8B054008430A1 /* CharactersService.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +31,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49CF599C27E8AF1F008430A1 /* OrderedCollections in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +92,6 @@
 			);
 			name = characterDetail;
 			packageProductDependencies = (
-				49CF599B27E8AF1F008430A1 /* OrderedCollections */,
 			);
 			productName = characterDetail;
 			productReference = 49CF598327E8AE13008430A1 /* characterDetail.app */;
@@ -125,7 +122,6 @@
 			);
 			mainGroup = 49CF597A27E8AE13008430A1;
 			packageReferences = (
-				49CF599A27E8AF1F008430A1 /* XCRemoteSwiftPackageReference "swift-collections" */,
 				49CF599E27E8B036008430A1 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 49CF598427E8AE13008430A1 /* Products */;
@@ -379,31 +375,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		49CF599A27E8AF1F008430A1 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-collections.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		49CF599E27E8B036008430A1 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 13.0.0;
+				minimumVersion = 13.0.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		49CF599B27E8AF1F008430A1 /* OrderedCollections */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 49CF599A27E8AF1F008430A1 /* XCRemoteSwiftPackageReference "swift-collections" */;
-			productName = OrderedCollections;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 49CF597B27E8AE13008430A1 /* Project object */;
 }
