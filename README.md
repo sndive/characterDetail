@@ -1,0 +1,2 @@
+# characterDetail
+Master detail
