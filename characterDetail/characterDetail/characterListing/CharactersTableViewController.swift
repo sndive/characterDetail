@@ -10,7 +10,8 @@ import UIKit
 class CharactersTableViewController: UITableViewController {
 
     var interactor: CharactersInteractor!
-
+    private lazy var dataSource = makeDataSource()
+    
     public required init?(coder: NSCoder)
     {
         super.init(coder: coder)
@@ -23,7 +24,6 @@ class CharactersTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -31,27 +31,52 @@ class CharactersTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    func applySnapshot(figments: [MarvelCharacter], animatingDifferences: Bool = true) {
+      var snapshot = Snapshot()
+      snapshot.appendSections([.main])
+      snapshot.appendItems(figments)
+      dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    
+    enum Section {
+      case main
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    typealias DataSource = UITableViewDiffableDataSource<Section, MarvelCharacter>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, MarvelCharacter>
+    
+    func makeDataSource() -> DataSource {
+      // 1
+      let dataSource = DataSource(
+        tableView: tableView,
+        cellProvider: { (tableView, indexPath, character) ->
+          UITableViewCell? in
+          // 2
+          let cell = tableView.dequeueReusableCell(
+            withIdentifier: "ComicCell",
+            for: indexPath) as? ComicCell
+          cell?.configureWith(character)
+          return cell
+      })
+      return dataSource
     }
-    */
+    
+//    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        let height = scrollView.frame.size.height
+//        let contentYoffset = scrollView.contentOffset.y
+//        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+//        if distanceFromBottom < height {
+//            print(" you reached end of the table")
+//            interactor.loadCharacters()
+//        }
+//    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.section == tableView.numberOfSections - 1 &&
+            indexPath.row >= tableView.numberOfRows(inSection: indexPath.section) - 10 {
+            print(" you reached end of the table")
+            interactor.loadCharacters()
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.

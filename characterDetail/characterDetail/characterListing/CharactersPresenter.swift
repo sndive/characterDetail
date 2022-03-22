@@ -9,7 +9,11 @@ import Foundation
 
 class CharactersPresenter
 {
-    var figments: [MarvelCharacter] = []
+    var figments: [MarvelCharacter] = [] {
+        didSet {
+            viewContoller?.applySnapshot(figments: figments, animatingDifferences: true)
+        }
+    }
     weak var viewContoller: CharactersTableViewController?
     
     init(viewContoller: CharactersTableViewController)

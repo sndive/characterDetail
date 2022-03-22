@@ -12,7 +12,8 @@ var router: MarvelousRouter?
 class CharactersInteractor
 {
     let presenter: CharactersPresenter
-
+    private static let serial = OS_dispatch_queue_serial(label: "characters.loader")
+    
     init?(viewContoller: CharactersTableViewController)
     {
         guard let nav = viewContoller.navigationController else {
@@ -23,20 +24,24 @@ class CharactersInteractor
         if router == nil {
             router = MarvelousRouter(navigationController: nav)
         }
-        Task {
-            await loadCharacters()
-        }
+        loadCharacters()
     }
     
-    func loadCharacters() async
+    func loadCharacters()
     {
-        let result = await CharactersService.shared.fetchCharacters()
-        switch result
-        {
-        case .success:
-            presenter.figments = CharactersService.shared.accumulator
-        case .failure(let error):
-            router?.showError(error: error)
-        }
+        CharactersInteractor.serial.async { Task {
+            let result = await CharactersService.shared.fetchCharacters()
+            switch result
+            {
+            case .success:
+                DispatchQueue.main.async
+                {
+                    [weak self] in
+                    self?.presenter.figments = CharactersService.shared.accumulator
+                }
+            case .failure(let error):
+                router?.showError(error: error)
+            }
+        } }
     }
 }

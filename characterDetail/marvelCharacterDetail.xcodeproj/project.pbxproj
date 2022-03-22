@@ -26,6 +26,7 @@
 		49E21B0D27EA0DD2009A2B16 /* MarvelousRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E21B0C27EA0DD2009A2B16 /* MarvelousRouter.swift */; };
 		49E21B1027EA0E56009A2B16 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E21B0E27EA0E56009A2B16 /* ErrorViewController.swift */; };
 		49E21B1127EA0E56009A2B16 /* ErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E21B0F27EA0E56009A2B16 /* ErrorViewController.xib */; };
+		49E21B1427EA244A009A2B16 /* MarvelCharacter+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E21B1327EA244A009A2B16 /* MarvelCharacter+Hashable.swift */; };
 		49F26AEB27E8CE9F006296C6 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F26AEA27E8CE9F006296C6 /* String+MD5.swift */; };
 		49F26AED27E8D099006296C6 /* Dictionary+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F26AEC27E8D099006296C6 /* Dictionary+.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,7 @@
 		49E21B0C27EA0DD2009A2B16 /* MarvelousRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelousRouter.swift; sourceTree = "<group>"; };
 		49E21B0E27EA0E56009A2B16 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		49E21B0F27EA0E56009A2B16 /* ErrorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorViewController.xib; sourceTree = "<group>"; };
+		49E21B1327EA244A009A2B16 /* MarvelCharacter+Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MarvelCharacter+Hashable.swift"; sourceTree = "<group>"; };
 		49F26AEA27E8CE9F006296C6 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		49F26AEC27E8D099006296C6 /* Dictionary+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +139,7 @@
 				49E21B0527EA0B87009A2B16 /* ComicCell.swift */,
 				49E21B0827EA0D31009A2B16 /* CharactersInteractor.swift */,
 				49E21B0A27EA0D3C009A2B16 /* CharactersPresenter.swift */,
+				49E21B1327EA244A009A2B16 /* MarvelCharacter+Hashable.swift */,
 			);
 			path = characterListing;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				49E21B0927EA0D31009A2B16 /* CharactersInteractor.swift in Sources */,
 				49E21B0D27EA0DD2009A2B16 /* MarvelousRouter.swift in Sources */,
 				49CF598727E8AE13008430A1 /* AppDelegate.swift in Sources */,
+				49E21B1427EA244A009A2B16 /* MarvelCharacter+Hashable.swift in Sources */,
 				49E21B0427EA0B12009A2B16 /* CharactersTableViewController.swift in Sources */,
 				49CF59A327E8C204008430A1 /* CharacterDataWrapper.swift in Sources */,
 				49CF598927E8AE13008430A1 /* SceneDelegate.swift in Sources */,
