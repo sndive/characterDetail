@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CharacterDataWrapper
+struct CharacterDataWrapper: Decodable
 {
     let code: String?
     let status: String?

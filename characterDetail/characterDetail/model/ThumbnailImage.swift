@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ThumbnailImage
+struct ThumbnailImage: Decodable
 {
 //    path (string, optional): The directory path of to the image.,
 //    extension (string, optional): The file extension for the image.

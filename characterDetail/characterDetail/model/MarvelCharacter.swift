@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MarvelCharacter
+struct MarvelCharacter: Decodable
 {
     let id: Int64? // (int, optional): The unique ID of the character resource.,
     let name: String? // (string, optional): The name of the character.,
