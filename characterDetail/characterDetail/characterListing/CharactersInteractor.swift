@@ -29,19 +29,23 @@ class CharactersInteractor
     
     func loadCharacters()
     {
-        CharactersInteractor.serial.async { Task {
-            let result = await CharactersService.shared.fetchCharacters()
-            switch result
-            {
-            case .success:
-                DispatchQueue.main.async
+        CharactersInteractor.serial.async {
+            CharactersInteractor.serial.suspend()
+            Task {
+                let result = await CharactersService.shared.fetchCharacters()
+                CharactersInteractor.serial.resume()
+                switch result
                 {
-                    [weak self] in
-                    self?.presenter.figments = CharactersService.shared.accumulator
+                case .success:
+                    DispatchQueue.main.async
+                    {
+                        [weak self] in
+                        self?.presenter.figments = CharactersService.shared.accumulator
+                    }
+                case .failure(let error):
+                    router?.showError(error: error)
                 }
-            case .failure(let error):
-                router?.showError(error: error)
             }
-        } }
+        }
     }
 }

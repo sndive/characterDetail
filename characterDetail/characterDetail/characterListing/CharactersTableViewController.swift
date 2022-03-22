@@ -72,7 +72,7 @@ class CharactersTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.section == tableView.numberOfSections - 1 &&
-            indexPath.row >= tableView.numberOfRows(inSection: indexPath.section) - 10 {
+            indexPath.row >= tableView.numberOfRows(inSection: indexPath.section) - 30 {
             print(" you reached end of the table")
             interactor.loadCharacters()
         }
