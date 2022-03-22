@@ -12,7 +12,7 @@ public enum Marvel {
     static private let publicKey = "bbb3e6765cd8478af66ba381b97eb87e"
     static private let privateKey = "9578a0afe3b666a348617ecfe5b50e81c901af1c"
 
-    case characters
+    case characters(Int, Int)
     case characterDetails(Int64)
 }
 
@@ -23,7 +23,8 @@ extension Marvel: TargetType {
     
     public var path: String {
         switch self {
-        case .characters: return "/characters"
+        case .characters(_,_):
+            return "/characters"
         case .characterDetails(let id): return "/characters/\(id)"
         }
     }
@@ -46,14 +47,16 @@ extension Marvel: TargetType {
         let authParams: [String : Any] = ["apikey": Marvel.publicKey, "ts": ts, "hash": hash]
         
         switch self {
-        default:
+        case .characters(let offset, let limit):
             let keepingCurrent = [
-                "format": "comic",
-                "formatType": "comic",
-                "orderBy": "-onsaleDate",
-                "dateDescriptor": "lastWeek",
-                "limit": 50
+                "offset": offset,
+                "limit": limit
             ] + authParams //.merging(authParams) { (current, _) in current }
+            return .requestParameters(
+                parameters: keepingCurrent,
+                encoding: URLEncoding.default)
+        case .characterDetails(let cid):
+            let keepingCurrent = [ "characterId" : cid ] + authParams
             return .requestParameters(
                 parameters: keepingCurrent,
                 encoding: URLEncoding.default)

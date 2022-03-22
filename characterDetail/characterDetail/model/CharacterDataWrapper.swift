@@ -9,7 +9,7 @@ import Foundation
 
 struct CharacterDataWrapper: Decodable
 {
-    let code: String?
+    let code: Int?
     let status: String?
     let data: CharacterDataContainer?
 }
