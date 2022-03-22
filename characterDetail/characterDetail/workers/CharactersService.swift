@@ -9,15 +9,13 @@ import Foundation
 
 class CharactersService
 {
-    func listCharacters() -> Result<CharacterDataWrapper, Error>
-    {
-//        /v1/public/characters
-        
-    }
-
-    func listCharacterDetails() -> Result<CharacterDataWrapper, Error>
-    {
-//        /v1/public/characters
-    }
+//    func listCharacters() -> Result<CharacterDataWrapper, Error>
+//    {
+//        
+//    }
+//
+//    func listCharacterDetails() -> Result<CharacterDataWrapper, Error>
+//    {
+//    }
 
 }
