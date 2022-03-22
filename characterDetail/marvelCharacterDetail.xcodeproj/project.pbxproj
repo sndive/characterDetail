@@ -53,6 +53,7 @@
 		49E21B0E27EA0E56009A2B16 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		49E21B0F27EA0E56009A2B16 /* ErrorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorViewController.xib; sourceTree = "<group>"; };
 		49E21B1327EA244A009A2B16 /* MarvelCharacter+Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MarvelCharacter+Hashable.swift"; sourceTree = "<group>"; };
+		49E21B1527EA39C7009A2B16 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		49F26AEA27E8CE9F006296C6 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		49F26AEC27E8D099006296C6 /* Dictionary+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +73,7 @@
 		49CF597A27E8AE13008430A1 = {
 			isa = PBXGroup;
 			children = (
+				49E21B1527EA39C7009A2B16 /* Readme.md */,
 				49CF598527E8AE13008430A1 /* characterDetail */,
 				49CF598427E8AE13008430A1 /* Products */,
 			);
