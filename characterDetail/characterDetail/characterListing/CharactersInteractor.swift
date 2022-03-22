@@ -24,15 +24,16 @@ class CharactersInteractor
         if router == nil {
             router = MarvelousRouter(navigationController: nav)
         }
-        loadCharacters()
+        let maxtablerows = 50
+        loadCharacters(uptoindex: maxtablerows)
     }
     
-    func loadCharacters()
+    func loadCharacters(uptoindex: Int)
     {
         CharactersInteractor.serial.async {
             CharactersInteractor.serial.suspend()
             Task {
-                let result = await CharactersService.shared.fetchCharacters()
+                let result = await CharactersService.shared.fetchCharacters(uptoindex: uptoindex)
                 CharactersInteractor.serial.resume()
                 switch result
                 {

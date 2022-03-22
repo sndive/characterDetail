@@ -15,12 +15,21 @@ class CharactersService
     var accumulator: [MarvelCharacter] = []
     var characterOffset: Int = 0
     var limit: Int = 50
-    
-    func fetchCharacters() async -> Result<CharacterDataWrapper, MoyaError>
+    var done = false
+    func fetchCharacters(uptoindex: Int) async -> Result<[MarvelCharacter], MoyaError>
     {
         await withCheckedContinuation { continuation in
             NSLog("characters offset: \(characterOffset) begin")
-
+            if done {
+                NSLog("characters offset: \(characterOffset) done")
+                continuation.resume(returning: Result.success(accumulator))
+                return
+            }
+            if (uptoindex < accumulator.count) {
+                NSLog("characters offset: \(characterOffset) enough")
+                continuation.resume(returning: Result.success(accumulator))
+                return
+            }
             provider.request(.characters(characterOffset, limit)) { result in
                 switch result {
                 case .success(let response):
@@ -35,9 +44,13 @@ class CharactersService
                         if let results = cdw.data?.results {
                             self.accumulator.append(contentsOf: results)
                             let count = cdw.data?.count ?? results.count
-                            self.characterOffset += count
+                            if count == 0 {
+                                self.done = true
+                            } else {
+                                self.characterOffset += count
+                            }
                         }
-                        continuation.resume(returning: Result.success(cdw))
+                        continuation.resume(returning: Result.success(self.accumulator))
                     } catch(let error) {
                         NSLog("characters offset: \(self.characterOffset) fend")
                         let result = MoyaError.underlying(error, nil)

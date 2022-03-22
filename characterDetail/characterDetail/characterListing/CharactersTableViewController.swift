@@ -59,22 +59,21 @@ class CharactersTableViewController: UITableViewController {
       })
       return dataSource
     }
-    
-//    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let height = scrollView.frame.size.height
-//        let contentYoffset = scrollView.contentOffset.y
-//        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
-//        if distanceFromBottom < height {
-//            print(" you reached end of the table")
-//            interactor.loadCharacters()
-//        }
-//    }
-    
+
+    let spinner = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.section == tableView.numberOfSections - 1 &&
-            indexPath.row >= tableView.numberOfRows(inSection: indexPath.section) - 30 {
+        let lastSectionIndex = tableView.numberOfSections - 1
+        let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
+        if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
+            // print("this is the last cell")
+        }
+        
+        let lookUpAheadMargin = 30
+        if indexPath.section == lastSectionIndex &&
+            indexPath.row >= lastRowIndex - lookUpAheadMargin {
             print(" you reached end of the table")
-            interactor.loadCharacters()
+            interactor.loadCharacters(uptoindex: indexPath.row + lookUpAheadMargin)
         }
     }
 
