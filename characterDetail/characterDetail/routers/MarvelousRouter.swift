@@ -11,7 +11,7 @@ import UIKit
 class MarvelousRouter
 {
     let navigationController: UINavigationController
-    var detail: CharacterDetailsViewController?
+    weak var detail: CharacterDetailsViewController?
     
     init(navigationController: UINavigationController)
     {
@@ -30,11 +30,19 @@ class MarvelousRouter
     
     func detail(character: MarvelCharacter)
     {
-        updateFor(character: character)
-//
-//        let vc = CharacterDetailsViewController(nibName: "CharacterDetailsViewController", bundle: nil)
-//        vc.character = character
-//        self.navigationController.pushViewController(vc, animated: true)
+        if let detail = detail, detail.isOnScreen {
+            updateFor(character: character)
+        } else {
+            // non plus devices
+            guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "characterDetail") as? CharacterDetailsViewController else {
+                assertionFailure()
+                return
+            }
+            //
+            //            let vc = CharacterDetailsViewController(nibName: "CharacterDetailsViewController", bundle: nil)
+            vc.character = character
+            self.navigationController.pushViewController(vc, animated: true)
+        }
     }
     
     func setDetail(vc: CharacterDetailsViewController)

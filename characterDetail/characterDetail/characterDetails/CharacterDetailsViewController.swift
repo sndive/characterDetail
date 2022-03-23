@@ -37,5 +37,10 @@ class CharacterDetailsViewController: UIViewController {
             imageView.sd_setImage(with: url)
         }
     }
+    
+    var isOnScreen: Bool {
+        let res = lblTitle.window != nil
+        return res
+    }
 
 }

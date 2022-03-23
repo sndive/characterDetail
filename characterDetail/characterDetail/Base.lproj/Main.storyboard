@@ -16,7 +16,7 @@
         <!--Character Details View Controller-->
         <scene sceneID="5kj-Gb-rg3">
             <objects>
-                <viewController id="7H1-41-aCf" customClass="CharacterDetailsViewController" customModule="characterDetail" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="characterDetail" id="7H1-41-aCf" customClass="CharacterDetailsViewController" customModule="characterDetail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5uK-TH-uWw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
