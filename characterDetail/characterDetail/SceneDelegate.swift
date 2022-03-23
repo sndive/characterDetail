@@ -28,10 +28,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if let detailViewController = last as? CharacterDetailsViewController
         {
-            router?.setDetail(vc: detailViewController)
+            router?.setDetail(vc: detailViewController, split: splitViewController)
         } else if let nav = last as? UINavigationController {
             if let detailViewController = nav.topViewController as? CharacterDetailsViewController {
-                router?.setDetail(vc: detailViewController)
+                router?.setDetail(vc: detailViewController, split: splitViewController)
             }
         }
     }

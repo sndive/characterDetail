@@ -11,6 +11,7 @@ import UIKit
 class MarvelousRouter
 {
     let navigationController: UINavigationController
+    weak var split: UISplitViewController?
     weak var detail: CharacterDetailsViewController?
     
     init(navigationController: UINavigationController)
@@ -30,10 +31,41 @@ class MarvelousRouter
     
     func detail(character: MarvelCharacter)
     {
-        if let detail = detail, detail.isOnScreen {
+//        if let detail = detail//, detail.isOnScreen
+//        {
             updateFor(character: character)
-        } else {
-            // non plus devices
+//        } else {
+//            // non plus devices
+//            guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "characterDetail") as? CharacterDetailsViewController else {
+//                assertionFailure()
+//                return
+//            }
+//            //
+//            //            let vc = CharacterDetailsViewController(nibName: "CharacterDetailsViewController", bundle: nil)
+//            vc.character = character
+//            self.navigationController.pushViewController(vc, animated: true)
+//        }
+    }
+    
+    func setDetail(vc: CharacterDetailsViewController,
+                   split: UISplitViewController)
+    {
+        detail = vc
+        self.split = split
+    }
+    
+    func updateFor(character: MarvelCharacter?)
+    {
+        guard let split = split else {
+            assertionFailure()
+            return
+        }
+        if let detail = detail, detail.isOnScreen {
+            detail.character = character
+            return
+        }
+        if split.isCollapsed ||
+            detail == nil {
             guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "characterDetail") as? CharacterDetailsViewController else {
                 assertionFailure()
                 return
@@ -41,17 +73,9 @@ class MarvelousRouter
             //
             //            let vc = CharacterDetailsViewController(nibName: "CharacterDetailsViewController", bundle: nil)
             vc.character = character
-            self.navigationController.pushViewController(vc, animated: true)
+            let nav = UINavigationController(rootViewController: vc)
+            split.showDetailViewController(nav, sender: self)
+            return
         }
-    }
-    
-    func setDetail(vc: CharacterDetailsViewController)
-    {
-        detail = vc
-    }
-    
-    func updateFor(character: MarvelCharacter?)
-    {
-        detail?.character = character
     }
 }
