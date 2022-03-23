@@ -29,10 +29,10 @@ class MarvelousRouter
         }
     }
     
-    func setDetail(vc: CharacterDetailsViewController,
+    func setup(detail: CharacterDetailsViewController,
                    split: UISplitViewController)
     {
-        detail = vc
+        self.detail = detail
         self.split = split
     }
 
