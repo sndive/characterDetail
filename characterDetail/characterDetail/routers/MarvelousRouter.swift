@@ -29,11 +29,6 @@ class MarvelousRouter
         }
     }
     
-    func detail(character: MarvelCharacter)
-    {
-        updateFor(character: character)
-    }
-    
     func setDetail(vc: CharacterDetailsViewController,
                    split: UISplitViewController)
     {

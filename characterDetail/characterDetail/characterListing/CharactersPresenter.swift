@@ -32,7 +32,7 @@ class CharactersPresenter
             return
         }
         let character = figments[atindex]
-        router?.detail(character: character)
+        router?.updateFor(character: character)
     }
 
 }
