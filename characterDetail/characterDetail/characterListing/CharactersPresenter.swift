@@ -14,7 +14,7 @@ class CharactersPresenter
             // thankfully we need no wrapper at the time cause the data is neat and tidy, sorted for us
             if oldValue.count != figments.count {
                 viewContoller?.applySnapshot(figments: figments, animatingDifferences: true)
-                router?.updateFor(character: figments.first)
+                router?.initiate(forCharacter: figments.first)
             }
         }
     }

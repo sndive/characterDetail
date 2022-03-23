@@ -35,6 +35,16 @@ class MarvelousRouter
         detail = vc
         self.split = split
     }
+
+    var initiated = false
+    func initiate(forCharacter: MarvelCharacter?)
+    {
+        if initiated {
+            return
+        }
+        updateFor(character: forCharacter)
+        initiated = true
+    }
     
     func updateFor(character: MarvelCharacter?)
     {
