@@ -27,6 +27,8 @@
 		49E21B1027EA0E56009A2B16 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E21B0E27EA0E56009A2B16 /* ErrorViewController.swift */; };
 		49E21B1127EA0E56009A2B16 /* ErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E21B0F27EA0E56009A2B16 /* ErrorViewController.xib */; };
 		49E21B1427EA244A009A2B16 /* MarvelCharacter+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E21B1327EA244A009A2B16 /* MarvelCharacter+Hashable.swift */; };
+		49E21B1927EB2262009A2B16 /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E21B1727EB2262009A2B16 /* CharacterDetailsViewController.swift */; };
+		49E21B1A27EB2262009A2B16 /* CharacterDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E21B1827EB2262009A2B16 /* CharacterDetailsViewController.xib */; };
 		49F26AEB27E8CE9F006296C6 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F26AEA27E8CE9F006296C6 /* String+MD5.swift */; };
 		49F26AED27E8D099006296C6 /* Dictionary+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F26AEC27E8D099006296C6 /* Dictionary+.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +56,8 @@
 		49E21B0F27EA0E56009A2B16 /* ErrorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorViewController.xib; sourceTree = "<group>"; };
 		49E21B1327EA244A009A2B16 /* MarvelCharacter+Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MarvelCharacter+Hashable.swift"; sourceTree = "<group>"; };
 		49E21B1527EA39C7009A2B16 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		49E21B1727EB2262009A2B16 /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewController.swift; sourceTree = "<group>"; };
+		49E21B1827EB2262009A2B16 /* CharacterDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterDetailsViewController.xib; sourceTree = "<group>"; };
 		49F26AEA27E8CE9F006296C6 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		49F26AEC27E8D099006296C6 /* Dictionary+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +94,7 @@
 		49CF598527E8AE13008430A1 /* characterDetail */ = {
 			isa = PBXGroup;
 			children = (
+				49E21B1627EB2220009A2B16 /* characterDetails */,
 				49E21B1227EA1C3A009A2B16 /* error_handling */,
 				49E21B0727EA0CED009A2B16 /* routers */,
 				49E21B0227EA0868009A2B16 /* characterListing */,
@@ -161,6 +166,15 @@
 				49E21B0F27EA0E56009A2B16 /* ErrorViewController.xib */,
 			);
 			path = error_handling;
+			sourceTree = "<group>";
+		};
+		49E21B1627EB2220009A2B16 /* characterDetails */ = {
+			isa = PBXGroup;
+			children = (
+				49E21B1727EB2262009A2B16 /* CharacterDetailsViewController.swift */,
+				49E21B1827EB2262009A2B16 /* CharacterDetailsViewController.xib */,
+			);
+			path = characterDetails;
 			sourceTree = "<group>";
 		};
 		49F26AE927E8CE84006296C6 /* helpers */ = {
@@ -239,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49CF599327E8AE15008430A1 /* LaunchScreen.storyboard in Resources */,
+				49E21B1A27EB2262009A2B16 /* CharacterDetailsViewController.xib in Resources */,
 				49E21B1127EA0E56009A2B16 /* ErrorViewController.xib in Resources */,
 				49CF599027E8AE15008430A1 /* Assets.xcassets in Resources */,
 				49CF598E27E8AE13008430A1 /* Main.storyboard in Resources */,
@@ -269,6 +284,7 @@
 				49E21B1027EA0E56009A2B16 /* ErrorViewController.swift in Sources */,
 				49F26AEB27E8CE9F006296C6 /* String+MD5.swift in Sources */,
 				49CF59A527E8C3EF008430A1 /* CharacterDataContainer.swift in Sources */,
+				49E21B1927EB2262009A2B16 /* CharacterDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

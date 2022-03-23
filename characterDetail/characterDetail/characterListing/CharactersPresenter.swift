@@ -23,4 +23,16 @@ class CharactersPresenter
     {
         self.viewContoller = viewContoller
     }
+    
+    func detailCharacter(atindex: Int)
+    {
+        guard atindex < figments.count else {
+            assertionFailure()
+            return
+        }
+        let character = figments[atindex]
+        router?.detail(character: character)
+
+    }
+
 }

@@ -26,4 +26,11 @@ class MarvelousRouter
             self.navigationController.pushViewController(evc, animated: true)
         }
     }
+    
+    func detail(character: MarvelCharacter)
+    {
+        let vc = CharacterDetailsViewController(nibName: "CharacterDetailsViewController", bundle: nil)
+        vc.character = character
+        self.navigationController.pushViewController(vc, animated: true)
+    }
 }

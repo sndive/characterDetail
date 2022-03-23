@@ -24,7 +24,7 @@ class CharactersInteractor
             router = MarvelousRouter(navigationController: nav)
         }
         let maxtablerows = 50
-        loadCharacters(uptoindex: maxtablerows)
+        _ = loadCharacters(uptoindex: maxtablerows)
     }
     
     func loadCharacters(uptoindex: Int) -> Bool
@@ -43,5 +43,10 @@ class CharactersInteractor
                 router?.showError(error: error)
             }
         })
+    }
+    
+    func detailCharacter(atindex: Int)
+    {
+        presenter.detailCharacter(atindex: atindex)
     }
 }
