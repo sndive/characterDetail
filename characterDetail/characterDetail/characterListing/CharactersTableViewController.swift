@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CharactersTableViewController: UITableViewController {
+class CharactersTableViewController: UITableViewController, UITableViewDataSourcePrefetching {
 
     var interactor: CharactersInteractor!
     private lazy var dataSource = makeDataSource()
@@ -25,7 +25,8 @@ class CharactersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         assert(self.tableView.dataSource === self)
-
+        self.tableView.prefetchDataSource = self
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -85,7 +86,7 @@ class CharactersTableViewController: UITableViewController {
         }
     }
 
-    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath])
+    @objc(tableView:prefetchRowsAtIndexPaths:) func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath])
     {
         let lastSectionIndex = tableView.numberOfSections - 1
         for ip in indexPaths {
