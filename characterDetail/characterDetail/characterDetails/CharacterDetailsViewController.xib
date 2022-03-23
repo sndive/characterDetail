@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CharacterDetailsViewController" customModule="characterDetail" customModuleProvider="target">
             <connections>
-                <outlet property="image" destination="8LB-Ug-tlw" id="hPI-9R-YAL"/>
+                <outlet property="imageView" destination="25C-UB-Wye" id="xXH-Uw-kp4"/>
                 <outlet property="lblTitle" destination="sW3-Ao-9bs" id="mYR-pr-NVX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
