@@ -68,19 +68,20 @@ class CharactersTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastSectionIndex = tableView.numberOfSections - 1
         let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
-        if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
-            spinner.startAnimating()
-            spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
-            self.tableView.tableFooterView = spinner
-            self.tableView.tableFooterView?.isHidden = false
-            // print("this is the last cell")
-        }
 
         let lookUpAheadMargin = 30
         if indexPath.section == lastSectionIndex &&
             indexPath.row >= lastRowIndex - lookUpAheadMargin {
-            print(" prefetch heruistic tripped")
-            interactor.loadCharacters(uptoindex: indexPath.row + lookUpAheadMargin)
+            if interactor.loadCharacters(uptoindex: indexPath.row + lookUpAheadMargin) {
+                spinner.startAnimating()
+                spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+                self.tableView.tableFooterView = spinner
+                self.tableView.tableFooterView?.isHidden = false
+            } else {
+                spinner.stopAnimating()
+                self.tableView.tableFooterView?.isHidden = true
+                self.tableView.tableFooterView = nil
+            }
         }
     }
 
@@ -89,7 +90,7 @@ class CharactersTableViewController: UITableViewController {
         let lastSectionIndex = tableView.numberOfSections - 1
         for ip in indexPaths {
             if ip.section ==  lastSectionIndex {
-                interactor.loadCharacters(uptoindex: ip.row)
+                _ = interactor.loadCharacters(uptoindex: ip.row)
             }
         }
     }

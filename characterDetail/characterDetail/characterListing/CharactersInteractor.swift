@@ -12,7 +12,6 @@ var router: MarvelousRouter?
 class CharactersInteractor
 {
     let presenter: CharactersPresenter
-    private static let serial = OS_dispatch_queue_serial(label: "characters.loader")
     
     init?(viewContoller: CharactersTableViewController)
     {
@@ -28,25 +27,21 @@ class CharactersInteractor
         loadCharacters(uptoindex: maxtablerows)
     }
     
-    func loadCharacters(uptoindex: Int)
+    func loadCharacters(uptoindex: Int) -> Bool
     {
-        CharactersInteractor.serial.async {
-            CharactersInteractor.serial.suspend()
-            Task {
-                let result = await CharactersService.shared.fetchCharacters(uptoindex: uptoindex)
-                CharactersInteractor.serial.resume()
-                switch result
+        return CharactersService.shared.loadCharacters(uptoindex: uptoindex, completion: {
+            result in
+            switch result
+            {
+            case .success:
+                DispatchQueue.main.async
                 {
-                case .success:
-                    DispatchQueue.main.async
-                    {
-                        [weak self] in
-                        self?.presenter.figments = CharactersService.shared.accumulator
-                    }
-                case .failure(let error):
-                    router?.showError(error: error)
+                    [weak self] in
+                    self?.presenter.figments = CharactersService.shared.accumulator
                 }
+            case .failure(let error):
+                router?.showError(error: error)
             }
-        }
+        })
     }
 }

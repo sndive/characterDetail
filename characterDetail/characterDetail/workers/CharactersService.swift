@@ -16,6 +16,25 @@ class CharactersService
     var characterOffset: Int = 0
     var limit: Int = 50
     var done = false
+    private static let serial = OS_dispatch_queue_serial(label: "characters.loader")
+
+    func loadCharacters(uptoindex: Int, completion: @escaping (Result<[MarvelCharacter], MoyaError>) -> Void) -> Bool
+    {
+        if done {
+            completion(Result.success(accumulator))
+            return false
+        }
+        CharactersService.serial.async {
+            CharactersService.serial.suspend()
+            _Concurrency.Task {
+                let result = await CharactersService.shared.fetchCharacters(uptoindex: uptoindex)
+                CharactersService.serial.resume()
+                completion(result)
+            }
+        }
+        return true
+    }
+
     func fetchCharacters(uptoindex: Int) async -> Result<[MarvelCharacter], MoyaError>
     {
         await withCheckedContinuation { continuation in

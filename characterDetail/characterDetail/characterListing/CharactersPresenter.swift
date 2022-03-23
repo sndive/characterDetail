@@ -11,7 +11,10 @@ class CharactersPresenter
 {
     var figments: [MarvelCharacter] = [] {
         didSet {
-            viewContoller?.applySnapshot(figments: figments, animatingDifferences: true)
+            // thankfully we need no wrapper at the time cause the data is neat and tidy, sorted for us
+            if oldValue.count != figments.count {
+                viewContoller?.applySnapshot(figments: figments, animatingDifferences: true)
+            }
         }
     }
     weak var viewContoller: CharactersTableViewController?
