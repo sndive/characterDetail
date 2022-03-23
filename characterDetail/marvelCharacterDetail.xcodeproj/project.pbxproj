@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		49B40DB627EB481500C28F26 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 49B40DB527EB481500C28F26 /* SDWebImage */; };
+		49B40DC027EB740300C28F26 /* characterDetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B40DBF27EB740300C28F26 /* characterDetailTests.swift */; };
 		49CF598727E8AE13008430A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CF598627E8AE13008430A1 /* AppDelegate.swift */; };
 		49CF598927E8AE13008430A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CF598827E8AE13008430A1 /* SceneDelegate.swift */; };
 		49CF598E27E8AE13008430A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CF598C27E8AE13008430A1 /* Main.storyboard */; };
@@ -33,7 +34,19 @@
 		49F26AED27E8D099006296C6 /* Dictionary+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F26AEC27E8D099006296C6 /* Dictionary+.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		49B40DC127EB740300C28F26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49CF597B27E8AE13008430A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49CF598227E8AE13008430A1;
+			remoteInfo = characterDetail;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		49B40DBD27EB740300C28F26 /* characterDetailTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = characterDetailTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		49B40DBF27EB740300C28F26 /* characterDetailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = characterDetailTests.swift; sourceTree = "<group>"; };
 		49CF598327E8AE13008430A1 /* characterDetail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = characterDetail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CF598627E8AE13008430A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49CF598827E8AE13008430A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +75,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		49B40DBA27EB740300C28F26 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		49CF598027E8AE13008430A1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -74,11 +94,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49B40DBE27EB740300C28F26 /* characterDetailTests */ = {
+			isa = PBXGroup;
+			children = (
+				49B40DBF27EB740300C28F26 /* characterDetailTests.swift */,
+			);
+			path = characterDetailTests;
+			sourceTree = "<group>";
+		};
 		49CF597A27E8AE13008430A1 = {
 			isa = PBXGroup;
 			children = (
 				49E21B1527EA39C7009A2B16 /* Readme.md */,
 				49CF598527E8AE13008430A1 /* characterDetail */,
+				49B40DBE27EB740300C28F26 /* characterDetailTests */,
 				49CF598427E8AE13008430A1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				49CF598327E8AE13008430A1 /* characterDetail.app */,
+				49B40DBD27EB740300C28F26 /* characterDetailTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,6 +218,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		49B40DBC27EB740300C28F26 /* characterDetailTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49B40DC327EB740300C28F26 /* Build configuration list for PBXNativeTarget "characterDetailTests" */;
+			buildPhases = (
+				49B40DB927EB740300C28F26 /* Sources */,
+				49B40DBA27EB740300C28F26 /* Frameworks */,
+				49B40DBB27EB740300C28F26 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49B40DC227EB740300C28F26 /* PBXTargetDependency */,
+			);
+			name = characterDetailTests;
+			productName = characterDetailTests;
+			productReference = 49B40DBD27EB740300C28F26 /* characterDetailTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		49CF598227E8AE13008430A1 /* characterDetail */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49CF599727E8AE15008430A1 /* Build configuration list for PBXNativeTarget "characterDetail" */;
@@ -221,6 +269,10 @@
 				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
+					49B40DBC27EB740300C28F26 = {
+						CreatedOnToolsVersion = 13.3;
+						TestTargetID = 49CF598227E8AE13008430A1;
+					};
 					49CF598227E8AE13008430A1 = {
 						CreatedOnToolsVersion = 13.3;
 					};
@@ -245,11 +297,19 @@
 			projectRoot = "";
 			targets = (
 				49CF598227E8AE13008430A1 /* characterDetail */,
+				49B40DBC27EB740300C28F26 /* characterDetailTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		49B40DBB27EB740300C28F26 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		49CF598127E8AE13008430A1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -264,6 +324,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		49B40DB927EB740300C28F26 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49B40DC027EB740300C28F26 /* characterDetailTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		49CF597F27E8AE13008430A1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -296,6 +364,11 @@
 			isa = PBXTargetDependency;
 			productRef = 49B40DB727EB599700C28F26 /* SDWebImage */;
 		};
+		49B40DC227EB740300C28F26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49CF598227E8AE13008430A1 /* characterDetail */;
+			targetProxy = 49B40DC127EB740300C28F26 /* PBXContainerItemProxy */;
+		};
 		49F26AE827E8CE56006296C6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			productRef = 49F26AE727E8CE56006296C6 /* Moya */;
@@ -322,6 +395,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		49B40DC427EB740300C28F26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K76BMMNDDH;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = agl.characterDetailTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/characterDetail.app/characterDetail";
+			};
+			name = Debug;
+		};
+		49B40DC527EB740300C28F26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K76BMMNDDH;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = agl.characterDetailTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/characterDetail.app/characterDetail";
+			};
+			name = Release;
+		};
 		49CF599527E8AE15008430A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -497,6 +606,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		49B40DC327EB740300C28F26 /* Build configuration list for PBXNativeTarget "characterDetailTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49B40DC427EB740300C28F26 /* Debug */,
+				49B40DC527EB740300C28F26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		49CF597E27E8AE13008430A1 /* Build configuration list for PBXProject "marvelCharacterDetail" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
