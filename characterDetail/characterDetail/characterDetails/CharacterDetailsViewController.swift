@@ -6,6 +6,7 @@
 //
 
 import UIKit
+//import SDWebImage
 
 class CharacterDetailsViewController: UIViewController {
     var character: MarvelCharacter?
@@ -15,6 +16,10 @@ class CharacterDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         lblTitle.text = character?.name
+        
+        if let url = character?.thumbnail?.path {
+//            sd_we
+        }
     }
 
 }
