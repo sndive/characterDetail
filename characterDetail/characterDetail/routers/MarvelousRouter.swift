@@ -11,6 +11,7 @@ import UIKit
 class MarvelousRouter
 {
     let navigationController: UINavigationController
+    var detail: CharacterDetailsViewController?
     
     init(navigationController: UINavigationController)
     {
@@ -29,8 +30,20 @@ class MarvelousRouter
     
     func detail(character: MarvelCharacter)
     {
-        let vc = CharacterDetailsViewController(nibName: "CharacterDetailsViewController", bundle: nil)
-        vc.character = character
-        self.navigationController.pushViewController(vc, animated: true)
+        updateFor(character: character)
+//
+//        let vc = CharacterDetailsViewController(nibName: "CharacterDetailsViewController", bundle: nil)
+//        vc.character = character
+//        self.navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func setDetail(vc: CharacterDetailsViewController)
+    {
+        detail = vc
+    }
+    
+    func updateFor(character: MarvelCharacter?)
+    {
+        detail?.character = character
     }
 }

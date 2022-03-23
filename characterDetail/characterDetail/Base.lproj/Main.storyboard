@@ -13,16 +13,43 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Character Details View Controller-->
         <scene sceneID="5kj-Gb-rg3">
             <objects>
-                <viewController id="7H1-41-aCf" sceneMemberID="viewController">
+                <viewController id="7H1-41-aCf" customClass="CharacterDetailsViewController" customModule="characterDetail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5uK-TH-uWw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BE2-iG-C3M">
+                                <rect key="frame" x="20" y="108" width="374" height="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qH9-SN-vbk">
+                                <rect key="frame" x="20" y="145" width="374" height="374"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="qH9-SN-vbk" secondAttribute="height" multiplier="1:1" id="0B9-y4-bJc"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="9xW-25-R7U"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qH9-SN-vbk" firstAttribute="top" secondItem="BE2-iG-C3M" secondAttribute="bottom" constant="20" id="0pN-ro-FZZ"/>
+                            <constraint firstItem="9xW-25-R7U" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qH9-SN-vbk" secondAttribute="bottom" id="B3L-qD-tib"/>
+                            <constraint firstItem="BE2-iG-C3M" firstAttribute="top" secondItem="9xW-25-R7U" secondAttribute="top" constant="20" id="Lvk-Ce-Azb"/>
+                            <constraint firstItem="qH9-SN-vbk" firstAttribute="leading" secondItem="9xW-25-R7U" secondAttribute="leading" priority="998" constant="20" id="Y2z-XL-o57"/>
+                            <constraint firstItem="BE2-iG-C3M" firstAttribute="leading" secondItem="9xW-25-R7U" secondAttribute="leading" constant="20" id="e5Y-Fo-C07"/>
+                            <constraint firstItem="9xW-25-R7U" firstAttribute="trailing" secondItem="BE2-iG-C3M" secondAttribute="trailing" constant="20" id="eVc-OW-4Zh"/>
+                            <constraint firstItem="9xW-25-R7U" firstAttribute="trailing" secondItem="qH9-SN-vbk" secondAttribute="trailing" constant="20" id="ocr-3S-yDF"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="qH9-SN-vbk" id="ss0-I5-32A"/>
+                        <outlet property="lblTitle" destination="BE2-iG-C3M" id="B3M-Gu-Odd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipB-Cy-BGu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

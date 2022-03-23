@@ -29,7 +29,6 @@
 		49E21B1127EA0E56009A2B16 /* ErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E21B0F27EA0E56009A2B16 /* ErrorViewController.xib */; };
 		49E21B1427EA244A009A2B16 /* MarvelCharacter+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E21B1327EA244A009A2B16 /* MarvelCharacter+Hashable.swift */; };
 		49E21B1927EB2262009A2B16 /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E21B1727EB2262009A2B16 /* CharacterDetailsViewController.swift */; };
-		49E21B1A27EB2262009A2B16 /* CharacterDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E21B1827EB2262009A2B16 /* CharacterDetailsViewController.xib */; };
 		49F26AEB27E8CE9F006296C6 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F26AEA27E8CE9F006296C6 /* String+MD5.swift */; };
 		49F26AED27E8D099006296C6 /* Dictionary+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F26AEC27E8D099006296C6 /* Dictionary+.swift */; };
 /* End PBXBuildFile section */
@@ -58,7 +57,6 @@
 		49E21B1327EA244A009A2B16 /* MarvelCharacter+Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MarvelCharacter+Hashable.swift"; sourceTree = "<group>"; };
 		49E21B1527EA39C7009A2B16 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		49E21B1727EB2262009A2B16 /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewController.swift; sourceTree = "<group>"; };
-		49E21B1827EB2262009A2B16 /* CharacterDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterDetailsViewController.xib; sourceTree = "<group>"; };
 		49F26AEA27E8CE9F006296C6 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		49F26AEC27E8D099006296C6 /* Dictionary+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				49E21B1727EB2262009A2B16 /* CharacterDetailsViewController.swift */,
-				49E21B1827EB2262009A2B16 /* CharacterDetailsViewController.xib */,
 			);
 			path = characterDetails;
 			sourceTree = "<group>";
@@ -202,6 +199,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				49B40DB827EB599700C28F26 /* PBXTargetDependency */,
 				49F26AE827E8CE56006296C6 /* PBXTargetDependency */,
 			);
 			name = characterDetail;
@@ -257,7 +255,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				49CF599327E8AE15008430A1 /* LaunchScreen.storyboard in Resources */,
-				49E21B1A27EB2262009A2B16 /* CharacterDetailsViewController.xib in Resources */,
 				49E21B1127EA0E56009A2B16 /* ErrorViewController.xib in Resources */,
 				49CF599027E8AE15008430A1 /* Assets.xcassets in Resources */,
 				49CF598E27E8AE13008430A1 /* Main.storyboard in Resources */,
@@ -295,6 +292,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		49B40DB827EB599700C28F26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 49B40DB727EB599700C28F26 /* SDWebImage */;
+		};
 		49F26AE827E8CE56006296C6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			productRef = 49F26AE727E8CE56006296C6 /* Moya */;
@@ -545,6 +546,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		49B40DB527EB481500C28F26 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 49B40DB427EB481500C28F26 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		49B40DB727EB599700C28F26 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 49B40DB427EB481500C28F26 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
