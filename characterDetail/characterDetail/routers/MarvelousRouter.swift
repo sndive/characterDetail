@@ -31,20 +31,7 @@ class MarvelousRouter
     
     func detail(character: MarvelCharacter)
     {
-//        if let detail = detail//, detail.isOnScreen
-//        {
-            updateFor(character: character)
-//        } else {
-//            // non plus devices
-//            guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "characterDetail") as? CharacterDetailsViewController else {
-//                assertionFailure()
-//                return
-//            }
-//            //
-//            //            let vc = CharacterDetailsViewController(nibName: "CharacterDetailsViewController", bundle: nil)
-//            vc.character = character
-//            self.navigationController.pushViewController(vc, animated: true)
-//        }
+        updateFor(character: character)
     }
     
     func setDetail(vc: CharacterDetailsViewController,
