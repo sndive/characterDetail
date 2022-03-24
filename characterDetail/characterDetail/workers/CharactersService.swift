@@ -7,7 +7,9 @@
 import Moya
 import Foundation
 
-class CharactersService
+
+
+class CharactersService: CharactersFetchProtocol
 {
     static let shared = CharactersService()
     let provider = MoyaProvider<Marvel>()
@@ -35,7 +37,7 @@ class CharactersService
         return true
     }
 
-    func fetchCharacters(uptoindex: Int) async -> Result<[MarvelCharacter], MoyaError>
+    private func fetchCharacters(uptoindex: Int) async -> Result<[MarvelCharacter], MoyaError>
     {
         await withCheckedContinuation { continuation in
             NSLog("characters offset: \(characterOffset) begin")

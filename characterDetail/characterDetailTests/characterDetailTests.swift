@@ -8,9 +8,15 @@
 import XCTest
 @testable import characterDetail
 
+let fakeService = FakeCharacterWorker()
+
 class characterDetailTests: XCTestCase {
 
     override func setUpWithError() throws {
+        let index = 49
+        _ = fakeService.loadCharacters(uptoindex: index, completion: {_ in
+            XCTAssert(fakeService.accumulator.count > index)
+        })
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
