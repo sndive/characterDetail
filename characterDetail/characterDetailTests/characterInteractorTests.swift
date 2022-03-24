@@ -40,6 +40,10 @@ class characterDetailTests: XCTestCase {
     }
 
     override func tearDownWithError() throws {
+        router = nil
+        viewController = nil
+        presenter = nil
+        interactor = nil
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
