@@ -26,10 +26,10 @@ class CharactersInteractor
             router = MarvelousRouter(navigationController: nav)
         }
         let maxtablerows = 50
-        _ = groomPresentables(uptoindex: maxtablerows)
+        _ = fetchCharacters(uptoindex: maxtablerows)
     }
     
-    func groomPresentables(uptoindex: Int) -> Bool
+    func fetchCharacters(uptoindex: Int) -> Bool
     {
         return worker.loadCharacters(uptoindex: uptoindex, completion: {
             result in
