@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/anton.tropashko/play/characterDetail/characterDetail/marvelCharacterDetail.xcodeproj">
+      location = "group:characterDetail/marvelCharacterDetail.xcodeproj">
    </FileRef>
 </Workspace>
