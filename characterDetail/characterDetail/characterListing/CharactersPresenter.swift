@@ -9,7 +9,7 @@ import Foundation
 
 class CharactersPresenter
 {
-    var figments: [MarvelCharacter] = [] {
+    private(set) var figments: [MarvelCharacter] = [] {
         didSet {
             // thankfully we need no wrapper at the time cause the data is neat and tidy, sorted for us
             if oldValue.count != figments.count {
@@ -33,6 +33,14 @@ class CharactersPresenter
         }
         let character = figments[atindex]
         router?.updateFor(character: character)
+    }
+    
+    func groom(accumulatedCharacters: [MarvelCharacter])
+    {
+        figments = accumulatedCharacters.filter
+        {
+            $0.id != nil
+        }
     }
 
 }

@@ -20,9 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard
           let splitViewController = window?.rootViewController as? UISplitViewController,
-          let leftNavController = splitViewController.viewControllers.first
-            as? UINavigationController,
-//          let masterViewController = leftNavController.viewControllers.first as? CharactersTableViewController,
           let last = splitViewController.viewControllers.last
           else { fatalError() }
         

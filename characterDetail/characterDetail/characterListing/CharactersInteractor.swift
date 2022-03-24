@@ -26,10 +26,10 @@ class CharactersInteractor
             router = MarvelousRouter(navigationController: nav)
         }
         let maxtablerows = 50
-        _ = loadCharacters(uptoindex: maxtablerows)
+        _ = groomPresentables(uptoindex: maxtablerows)
     }
     
-    func loadCharacters(uptoindex: Int) -> Bool
+    func groomPresentables(uptoindex: Int) -> Bool
     {
         return worker.loadCharacters(uptoindex: uptoindex, completion: {
             result in
@@ -43,10 +43,7 @@ class CharactersInteractor
                         assertionFailure()
                         return
                     }
-                    self.presenter.figments = self.worker.accumulator.filter
-                    {
-                        $0.id != nil
-                    }
+                    self.presenter.groom(accumulatedCharacters: self.worker.accumulator)
                 }
             case .failure(let error):
                 router?.showError(error: error)
