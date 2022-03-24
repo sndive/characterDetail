@@ -22,4 +22,5 @@ protocol MarvelousRouterProtocol
 {
     func showError(error: Error)
     func initiate(forCharacter: MarvelCharacter?)
+    func updateFor(character: MarvelCharacter?)
 }

@@ -12,7 +12,7 @@ let fakeService = FakeCharacterWorker()
 
 var router: MarvelousRouterSpy?
 
-class characterDetailTests: XCTestCase {
+class characterInteractorTests: XCTestCase {
     let index = 49
     var viewController: TableViewControllerSpy!
     var presenter: CharactersPresenterSpy!
@@ -76,7 +76,6 @@ class characterDetailTests: XCTestCase {
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 10.0)
-
     }
 //    func testPerformanceExample() throws {
 //        // This is an example of a performance test case.

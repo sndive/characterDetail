@@ -9,6 +9,8 @@ import Foundation
 
 class MarvelousRouterSpy: MarvelousRouterProtocol
 {
+    var character: MarvelCharacter?
+    
     func showError(error: Error)
     {
         
@@ -16,4 +18,10 @@ class MarvelousRouterSpy: MarvelousRouterProtocol
     func initiate(forCharacter: MarvelCharacter?)
     {
     }
+    
+    func updateFor(character: MarvelCharacter?) {
+        self.character = character
+    }
+    
+
 }
