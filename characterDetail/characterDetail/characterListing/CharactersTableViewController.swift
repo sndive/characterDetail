@@ -7,7 +7,8 @@
 
 import UIKit
 
-class CharactersTableViewController: UITableViewController, UITableViewDataSourcePrefetching {
+class CharactersTableViewController: UITableViewController, UITableViewDataSourcePrefetching,
+                                     CharactersTableViewControllerProtocol{
 
     var interactor: CharactersInteractor!
     private lazy var dataSource = makeDataSource()
@@ -15,10 +16,17 @@ class CharactersTableViewController: UITableViewController, UITableViewDataSourc
     public required init?(coder: NSCoder)
     {
         super.init(coder: coder)
-        guard let interactor = CharactersInteractor(viewContoller: self) else {
+        guard let nav = navigationController else {
+            assertionFailure("fixme")
+            return nil
+        }
+        let presenter = CharactersPresenter(viewContoller: self)
+        router = MarvelousRouter(navigationController: nav)
+        guard let interactor = CharactersInteractor(presenter: presenter) else {
             assertionFailure()
             return nil
         }
+        interactor.worker = CharactersService.shared
         self.interactor = interactor
     }
     

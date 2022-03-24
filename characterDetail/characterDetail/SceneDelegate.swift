@@ -7,6 +7,8 @@
 
 import UIKit
 
+var router: MarvelousRouter?
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?

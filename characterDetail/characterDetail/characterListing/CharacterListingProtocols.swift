@@ -10,10 +10,16 @@ import Foundation
 protocol CharactersPresenterProtocol
 {
     func groom(accumulatedCharacters: [MarvelCharacter])
-    func detailPresentable(atindex: Int)
+    func detailCharacter(atindex: Int)
 }
 
 protocol CharactersTableViewControllerProtocol
 {
     func applySnapshot(figments: [MarvelCharacter], animatingDifferences: Bool)
+}
+
+protocol MarvelousRouterProtocol
+{
+    func showError(error: Error)
+    func initiate(forCharacter: MarvelCharacter?)
 }

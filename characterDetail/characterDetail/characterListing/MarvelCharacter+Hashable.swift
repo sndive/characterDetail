@@ -14,6 +14,6 @@ extension MarvelCharacter: Hashable
     }
     
     func hash(into hasher: inout Hasher) {
-      hasher.combine(id)
+        hasher.combine(id)
     }
 }

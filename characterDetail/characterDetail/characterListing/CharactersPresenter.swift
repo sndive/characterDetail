@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CharactersPresenter
+class CharactersPresenter: CharactersPresenterProtocol
 {
     private(set) var figments: [MarvelCharacter] = [] {
         didSet {
@@ -18,9 +18,9 @@ class CharactersPresenter
             }
         }
     }
-    weak var viewContoller: CharactersTableViewController?
+    weak var viewContoller: (CharactersTableViewControllerProtocol & NSObject)?
     
-    init(viewContoller: CharactersTableViewController)
+    init(viewContoller: (CharactersTableViewControllerProtocol & NSObject) )
     {
         self.viewContoller = viewContoller
     }

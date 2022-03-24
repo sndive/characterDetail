@@ -7,28 +7,24 @@
 
 import Foundation
 
-var router: MarvelousRouter?
-
 class CharactersInteractor
 {
-    let presenter: CharactersPresenter
-    var worker: CharactersFetchProtocol = // to test optionality use FakeCharacterWorker()
-        CharactersService.shared
-    
-    init?(viewContoller: CharactersTableViewController)
+    var presenter: CharactersPresenterProtocol
+    // in case force unwrap bombs check dependency injection: this is configured by the user code
+    var worker: CharactersFetchProtocol! // =  to test optionality use FakeCharacterWorker()
+//        CharactersService.shared
     {
-        guard let nav = viewContoller.navigationController else {
-            assertionFailure("fixme")
-            return nil
+        didSet {
+            let maxtablerows = 50
+            _ = fetchCharacters(uptoindex: maxtablerows)
         }
-        presenter = CharactersPresenter(viewContoller: viewContoller)
-        if router == nil {
-            router = MarvelousRouter(navigationController: nav)
-        }
-        let maxtablerows = 50
-        _ = fetchCharacters(uptoindex: maxtablerows)
     }
     
+    init?(presenter: CharactersPresenterProtocol)
+    {
+        self.presenter = presenter
+    }
+
     func fetchCharacters(uptoindex: Int) -> Bool
     {
         return worker.loadCharacters(uptoindex: uptoindex, completion: {

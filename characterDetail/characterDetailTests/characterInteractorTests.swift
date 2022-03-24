@@ -10,9 +10,14 @@ import XCTest
 
 let fakeService = FakeCharacterWorker()
 
+var router: MarvelousRouterSpy?
+
 class characterDetailTests: XCTestCase {
     let index = 49
-
+    var viewController: TableViewControllerSpy!
+    var presenter: CharactersPresenterSpy!
+    var interactor: CharactersInteractor!
+    
     override func setUpWithError() throws {
         _ = fakeService.loadCharacters(uptoindex: index, completion: { result in
             switch result {
@@ -22,14 +27,23 @@ class characterDetailTests: XCTestCase {
                 break
             }
         })
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        router = MarvelousRouterSpy()
+        viewController = TableViewControllerSpy()
+        presenter = CharactersPresenterSpy(viewContoller: viewController)
+        guard let interactor = CharactersInteractor(presenter: presenter) else {
+            XCTAssert(false, "interactor can;t be constructed")
+            return
+        }
+        interactor.presenter = presenter
+        interactor.worker = FakeCharacterWorker()
+        self.interactor = interactor
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func testFakeWorker() throws {
         XCTAssert(fakeService.accumulator.count > index)
 
         // This is an example of a functional test case.
@@ -38,7 +52,28 @@ class characterDetailTests: XCTestCase {
         // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
         // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
     }
+    
+    func testPresentCharacters()
+    {
+        expectOnMainThread()
+        XCTAssertTrue(presenter.groomed, "Not started presenter.groom")
+    }
+    
+    func testAapplySnapshotInvoked()
+    {
+        expectOnMainThread()
+        XCTAssertTrue(viewController.applySnapshotInvoked, "Not applied snapshot")
+    }
+    
+    func expectOnMainThread()
+    {
+        let expectation = XCTestExpectation(description: "Completed doWorkOnUI")
+        DispatchQueue.main.async {
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10.0)
 
+    }
 //    func testPerformanceExample() throws {
 //        // This is an example of a performance test case.
 //        measure {
