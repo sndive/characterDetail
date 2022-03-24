@@ -15,6 +15,8 @@
 		49B40DCB27EC673A00C28F26 /* FakeCharacterWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B40DCA27EC673A00C28F26 /* FakeCharacterWorker.swift */; };
 		49B40DCF27EC6DE100C28F26 /* WorkerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B40DCE27EC6DE000C28F26 /* WorkerProtocols.swift */; };
 		49B40DD027EC6E2600C28F26 /* WorkerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B40DCE27EC6DE000C28F26 /* WorkerProtocols.swift */; };
+		49B40DD127EC6FEE00C28F26 /* FakeCharacterWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B40DCA27EC673A00C28F26 /* FakeCharacterWorker.swift */; };
+		49B40DD227EC6FF100C28F26 /* Seeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B40DC627EC641D00C28F26 /* Seeds.swift */; };
 		49CF598727E8AE13008430A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CF598627E8AE13008430A1 /* AppDelegate.swift */; };
 		49CF598927E8AE13008430A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CF598827E8AE13008430A1 /* SceneDelegate.swift */; };
 		49CF598E27E8AE13008430A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CF598C27E8AE13008430A1 /* Main.storyboard */; };
@@ -55,7 +57,6 @@
 		49B40DBF27EB740300C28F26 /* characterDetailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = characterDetailTests.swift; sourceTree = "<group>"; };
 		49B40DC627EC641D00C28F26 /* Seeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seeds.swift; sourceTree = "<group>"; };
 		49B40DCA27EC673A00C28F26 /* FakeCharacterWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCharacterWorker.swift; sourceTree = "<group>"; };
-		49B40DCD27EC686100C28F26 /* WorkerTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = WorkerTestPlan.xctestplan; sourceTree = "<group>"; };
 		49B40DCE27EC6DE000C28F26 /* WorkerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerProtocols.swift; sourceTree = "<group>"; };
 		49CF598327E8AE13008430A1 /* characterDetail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = characterDetail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CF598627E8AE13008430A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,7 +111,6 @@
 				49B40DBF27EB740300C28F26 /* characterDetailTests.swift */,
 				49B40DC627EC641D00C28F26 /* Seeds.swift */,
 				49B40DCA27EC673A00C28F26 /* FakeCharacterWorker.swift */,
-				49B40DCD27EC686100C28F26 /* WorkerTestPlan.xctestplan */,
 			);
 			path = characterDetailTests;
 			sourceTree = "<group>";
@@ -357,6 +357,8 @@
 			files = (
 				49E21B0B27EA0D3C009A2B16 /* CharactersPresenter.swift in Sources */,
 				49E21B0927EA0D31009A2B16 /* CharactersInteractor.swift in Sources */,
+				49B40DD227EC6FF100C28F26 /* Seeds.swift in Sources */,
+				49B40DD127EC6FEE00C28F26 /* FakeCharacterWorker.swift in Sources */,
 				49E21B0D27EA0DD2009A2B16 /* MarvelousRouter.swift in Sources */,
 				49CF598727E8AE13008430A1 /* AppDelegate.swift in Sources */,
 				49E21B1427EA244A009A2B16 /* MarvelCharacter+Hashable.swift in Sources */,

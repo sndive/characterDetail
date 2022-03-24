@@ -29,7 +29,7 @@ class CharactersService: CharactersFetchProtocol
         CharactersService.serial.async {
             CharactersService.serial.suspend()
             _Concurrency.Task {
-                let result = await CharactersService.shared.fetchCharacters(uptoindex: uptoindex)
+                let result = await self.fetchCharacters(uptoindex: uptoindex)
                 CharactersService.serial.resume()
                 completion(result)
             }

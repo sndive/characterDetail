@@ -9,5 +9,6 @@ import Foundation
 
 protocol CharactersFetchProtocol
 {
+    var accumulator: [MarvelCharacter] { get }
     func loadCharacters(uptoindex: Int, completion: @escaping (Result<[MarvelCharacter], MoyaError>) -> Void) -> Bool
 }

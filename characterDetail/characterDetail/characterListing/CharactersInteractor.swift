@@ -12,6 +12,8 @@ var router: MarvelousRouter?
 class CharactersInteractor
 {
     let presenter: CharactersPresenter
+    var worker: CharactersFetchProtocol = // to test optionality use FakeCharacterWorker()
+        CharactersService.shared
     
     init?(viewContoller: CharactersTableViewController)
     {
@@ -29,7 +31,7 @@ class CharactersInteractor
     
     func loadCharacters(uptoindex: Int) -> Bool
     {
-        return CharactersService.shared.loadCharacters(uptoindex: uptoindex, completion: {
+        return worker.loadCharacters(uptoindex: uptoindex, completion: {
             result in
             switch result
             {
@@ -37,7 +39,14 @@ class CharactersInteractor
                 DispatchQueue.main.async
                 {
                     [weak self] in
-                    self?.presenter.figments = CharactersService.shared.accumulator
+                    guard let self = self else {
+                        assertionFailure()
+                        return
+                    }
+                    self.presenter.figments = self.worker.accumulator.filter
+                    {
+                        $0.id != nil
+                    }
                 }
             case .failure(let error):
                 router?.showError(error: error)
