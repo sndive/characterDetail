@@ -65,7 +65,7 @@ class CharactersTableViewController: UITableViewController, UITableViewDataSourc
         let lookUpAheadMargin = 30
         if indexPath.section == lastSectionIndex &&
             indexPath.row >= lastRowIndex - lookUpAheadMargin {
-            if interactor.groomPresentables(uptoindex: indexPath.row + lookUpAheadMargin) {
+            if interactor.fetchCharacters(uptoindex: indexPath.row + lookUpAheadMargin) {
                 spinner.startAnimating()
                 spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
                 self.tableView.tableFooterView = spinner
@@ -83,7 +83,7 @@ class CharactersTableViewController: UITableViewController, UITableViewDataSourc
         let lastSectionIndex = tableView.numberOfSections - 1
         for ip in indexPaths {
             if ip.section ==  lastSectionIndex {
-                _ = interactor.groomPresentables(uptoindex: ip.row)
+                _ = interactor.fetchCharacters(uptoindex: ip.row)
             }
         }
     }
